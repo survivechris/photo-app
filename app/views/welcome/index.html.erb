@@ -1,2 +1,57 @@
-<h1>Welcome to the Photo App</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<% if current_user %>
+  <h3>Welcome: <%= current_user.email %></h3>
+<% else %>
+  <div class="jumbotron">
+    <h2>Welcome to the Photo Management App!</h2>
+    <p class="lead">
+      You'll love managing your Photos with our application. Sign up!
+    </p>
+  </div>
+  <div class="row">
+    <div class="plans">
+      <div class="col-lg-3 col-lg-offset-3 plan">
+        <h2>Premium Plan</h2>
+        <div class="row">
+          <div class="price col-lg-4 col-lg-push-8 col-md-4 col-md-push-8 col-xs-4 col-xs-push-8">
+            Price: $10
+          </div>
+          <div class="features col-lg-8 col-lg-pull-4 col-md-8 col-md-pull-4 col-xs-8 col-xs-pull-4">
+            <ul>
+              <li>Unlimited Image Uploads</li>
+              <li>Responsive design</li>
+              <li>Access anywhere</li>
+            </ul>
+          </div>
+          <div class="clearfix hidden-xs"></div>
+        </div>
+        <div class="row">
+          <div class='col-lg-2'>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 plan">
+        <h2>Amaze Plan</h2>
+        <div class="row">
+          <div class="price col-lg-4 col-lg-push-8 col-md-4 col-md-push-8 col-xs-4 col-xs-push-8">
+            Price: $20
+          </div>
+          <div class="features col-lg-8 col-lg-pull-4 col-md-8 col-md-pull-4 col-xs-8 col-xs-pull-4">
+            <ul>
+              <li>Unlimited Image Uploads</li>
+              <li>Responsive design</li>
+              <li>Access anywhere</li>
+              <li class='extra'>Unlimited projects</li>
+            </ul>
+          </div>
+          <div class="clearfix hidden-xs"></div>
+        </div>
+        <div class="row">
+          <div class='col-lg-2'>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary sign-up' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
