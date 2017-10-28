@@ -15,7 +15,6 @@ class ImagesController < ApplicationController
   # GET /images/new
   def new
     @image = Image.new
-    @image.user = current_user
   end
 
   # GET /images/1/edit
@@ -26,6 +25,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(image_params)
+    @image.user = current_user
 
     respond_to do |format|
       if @image.save
