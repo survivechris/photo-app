@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :images
   # for registrations, check the custom registration controller, and then the devise's
   devise_for :users, :controllers => { :registrations => 'registrations' }
   root 'welcome#index'
